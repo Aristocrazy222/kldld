@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blessy — Аккаунт</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+</head>
+<body class="bg-gray-50 font-Manrope text-gray-700 flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white/90 backdrop-blur-sm shadow-md fixed inset-x-0 top-0 z-50">
+    <div class="max-w-5xl mx-auto flex items-center justify-between p-4">
+      <a href="index.html" class="text-2xl font-extrabold text-blue-600">Blessy</a>
+      <nav class="hidden md:flex space-x-6 font-medium text-gray-600">
+        <a href="index.html" class="hover:text-blue-600 transition">Главная</a>
+        <a href="catalog.html" class="hover:text-blue-600 transition">Каталог</a>
+        <a href="about.html" class="hover:text-blue-600 transition">О нас</a>
+        <a href="contact.html" class="hover:text-blue-600 transition">Контакты</a>
+        <a href="blog.html" class="hover:text-blue-600 transition">Блог</a>
+        <a href="cart.html" class="hover:text-blue-600 transition">Корзина</a>
+        <a href="account.html" class="text-blue-600 transition">Аккаунт</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden text-gray-600 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden bg-white shadow-md md:hidden">
+      <nav class="flex flex-col space-y-2 py-4 px-6 text-gray-600">
+        <a href="index.html" class="hover:text-blue-600 transition">Главная</a>
+        <a href="catalog.html" class="hover:text-blue-600 transition">Каталог</a>
+        <a href="about.html" class="hover:text-blue-600 transition">О нас</a>
+        <a href="contact.html" class="hover:text-blue-600 transition">Контакты</a>
+        <a href="blog.html" class="hover:text-blue-600 transition">Блог</a>
+        <a href="cart.html" class="hover:text-blue-600 transition">Корзина</a>
+        <a href="account.html" class="text-blue-600 transition">Аккаунт</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow pt-24 pb-12">
+    <div class="max-w-3xl mx-auto px-6 bg-white rounded-xl shadow p-6">
+
+      <!-- Tabs -->
+      <div id="tabs" class="flex mb-6 border-b">
+        <button id="tab-register-btn" class="flex-1 py-2 text-center font-semibold border-b-2 border-blue-600">Регистрация</button>
+        <button id="tab-login-btn" class="flex-1 py-2 text-center font-semibold text-gray-500 hover:text-blue-600 border-b-2 border-transparent">Вход</button>
+      </div>
+
+      <!-- Forms and Account Menu -->
+      <div id="auth-container">
+        <!-- Registration Form -->
+        <form id="registration-form" class="space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <input id="first-name" type="text" placeholder="Имя" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300"/>
+            <input id="last-name" type="text" placeholder="Фамилия" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300"/>
+          </div>
+          <input id="email" type="email" placeholder="Email" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300"/>
+          <input id="password" type="password" placeholder="Пароль (минимум 8 символов)" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300"/>
+          <button type="submit" class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition">Зарегистрироваться</button>
+        </form>
+
+        <!-- Login Form -->
+        <form id="login-form" class="space-y-4 hidden">
+          <input id="login-email" type="email" placeholder="Email" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300"/>
+          <input id="login-password" type="password" placeholder="Пароль" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300"/>
+          <div class="flex items-center justify-between text-sm">
+            <label><input type="checkbox" id="remember-me" class="mr-2"/>Запомнить меня</label>
+            <button type="button" id="forgot-password" class="text-blue-600 hover:underline">Забыли пароль?</button>
+          </div>
+          <button type="submit" class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition">Войти</button>
+        </form>
+
+        <!-- Account Menu -->
+        <div id="account-menu" class="hidden">
+          <h2 class="text-xl font-semibold mb-4">Добро пожаловать, <span id="user-name"></span>!</h2>
+          <nav class="flex space-x-4 mb-6">
+            <button id="profile-link" class="py-2 px-4 rounded-lg hover:bg-gray-100">Профиль</button>
+            <button id="orders-link" class="py-2 px-4 rounded-lg hover:bg-gray-100">Мои заказы</button>
+            <button id="logout-btn" class="py-2 px-4 rounded-lg text-red-600 hover:bg-gray-100">Выйти</button>
+          </nav>
+
+          <!-- Profile Section -->
+          <div id="profile-section" class="space-y-4">
+            <label class="block"><span class="font-medium">Имя</span>
+              <input id="profile-first-name" type="text" class="w-full mt-1 border rounded-lg px-3 py-2"/>
+            </label>
+            <label class="block"><span class="font-medium">Фамилия</span>
+              <input id="profile-last-name" type="text" class="w-full mt-1 border rounded-lg px-3 py-2"/>
+            </label>
+            <label class="block"><span class="font-medium">Email</span>
+              <input id="profile-email" type="email" class="w-full mt-1 border rounded-lg px-3 py-2"/>
+            </label>
+            <button id="save-profile" class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition">Сохранить профиль</button>
+          </div>
+
+          <!-- Orders Section -->
+          <div id="orders-section" class="hidden space-y-2">
+            <p id="orders-empty" class="text-gray-600">У вас пока нет заказов.</p>
+            <ul id="orders-list" class="space-y-2"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center text-sm py-5 mt-auto">
+    © 2025 Blessy. Все права защищены.
+  </footer>
+
+  <script>
+    const notyf = new Notyf();
+    const el = id => document.getElementById(id);
+
+    function hasInvalidChars(value) {
+      return /[<>\"'`]/.test(value);
+    }
+
+    function checkInputs(inputs) {
+      for (const input of inputs) {
+        if (hasInvalidChars(input.value)) {
+          notyf.error(`Недопустимые символы в поле "${input.placeholder || input.name}"`);
+          return false;
+        }
+      }
+      return true;
+    }
+
+    el('menu-btn').onclick = () => el('mobile-menu').classList.toggle('hidden');
+    el('tab-register-btn').onclick = showRegister;
+    el('tab-login-btn').onclick = showLogin;
+
+    el('logout-btn').onclick = () => {
+      localStorage.setItem('loggedIn', 'false');
+      notyf.info('Вы вышли из аккаунта');
+      showLogin();
+    };
+
+    el('registration-form').onsubmit = e => {
+      e.preventDefault();
+      const inputs = [el('first-name'), el('last-name'), el('email'), el('password')];
+      if (!checkInputs(inputs)) return;
+      if (el('password').value.length < 8) {
+        notyf.error('Пароль должен быть не менее 8 символов');
+        return;
+      }
+      localStorage.setItem('userFirstName', el('first-name').value);
+      localStorage.setItem('userLastName', el('last-name').value);
+      localStorage.setItem('userEmail', el('email').value);
+      localStorage.setItem('userPassword', el('password').value);
+      localStorage.setItem('loggedIn', 'true');
+      notyf.success('Регистрация успешна');
+      showAccount();
+    };
+
+    el('login-form').onsubmit = e => {
+      e.preventDefault();
+      const inputs = [el('login-email'), el('login-password')];
+      if (!checkInputs(inputs)) return;
+      if (
+        el('login-email').value === localStorage.getItem('userEmail') &&
+        el('login-password').value === localStorage.getItem('userPassword')
+      ) {
+        localStorage.setItem('loggedIn', 'true');
+        notyf.success('Вход выполнен');
+        showAccount();
+      } else {
+        notyf.error('Неверный email или пароль');
+      }
+    };
+
+    el('save-profile').onclick = () => {
+      const inputs = [el('profile-first-name'), el('profile-last-name'), el('profile-email')];
+      if (!checkInputs(inputs)) return;
+      localStorage.setItem('userFirstName', el('profile-first-name').value);
+      localStorage.setItem('userLastName', el('profile-last-name').value);
+      localStorage.setItem('userEmail', el('profile-email').value);
+      updateProfile();
+      notyf.success('Профиль обновлён');
+    };
+
+    function showRegister() {
+      el('registration-form').classList.remove('hidden');
+      el('login-form').classList.add('hidden');
+      el('tabs').classList.remove('hidden');
+      el('account-menu').classList.add('hidden');
+      el('tab-register-btn').classList.add('border-b-2', 'border-blue-600');
+      el('tab-login-btn').classList.remove('border-b-2', 'border-blue-600');
+    }
+
+    function showLogin() {
+      el('login-form').classList.remove('hidden');
+      el('registration-form').classList.add('hidden');
+      el('tabs').classList.remove('hidden');
+      el('account-menu').classList.add('hidden');
+      el('tab-login-btn').classList.add('border-b-2', 'border-blue-600');
+      el('tab-register-btn').classList.remove('border-b-2', 'border-blue-600');
+    }
+
+    function showAccount() {
+      el('tabs').classList.add('hidden');
+      el('registration-form').classList.add('hidden');
+      el('login-form').classList.add('hidden');
+      el('account-menu').classList.remove('hidden');
+      updateProfile();
+      showProfile();
+    }
+
+    function updateProfile() {
+      el('user-name').textContent = localStorage.getItem('userFirstName') + ' ' + localStorage.getItem('userLastName');
+      el('profile-first-name').value = localStorage.getItem('userFirstName') || '';
+      el('profile-last-name').value = localStorage.getItem('userLastName') || '';
+      el('profile-email').value = localStorage.getItem('userEmail') || '';
+    }
+
+    function showProfile() {
+      el('profile-section').classList.remove('hidden');
+      el('orders-section').classList.add('hidden');
+    }
+
+    function showOrders() {
+      el('profile-section').classList.add('hidden');
+      el('orders-section').classList.remove('hidden');
+      const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+      const list = el('orders-list'); list.innerHTML = '';
+      if (!orders.length) {
+        el('orders-empty').classList.remove('hidden');
+      } else {
+        el('orders-empty').classList.add('hidden');
+        orders.forEach(o => {
+          const li = document.createElement('li');
+          li.className = 'p-4 border rounded-lg';
+          li.textContent = `Заказ #${o.id} — ${o.date} — ${o.total}`;
+          list.appendChild(li);
+        });
+      }
+    }
+
+    if (localStorage.getItem('loggedIn') === 'true') showAccount(); else showRegister();
+  </script>
+</body>
+</html>

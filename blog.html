@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blessy — Блог</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-50 font-Manrope text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md fixed top-0 w-full z-50">
+    <div class="max-w-screen-xl mx-auto flex items-center justify-between px-6 py-4">
+      <div class="text-2xl font-extrabold text-blue-800">Blessy</div>
+      <nav class="hidden md:flex space-x-6 font-medium text-gray-700">
+        <a href="index.html" class="hover:text-blue-800 transition">Главная</a>
+        <a href="catalog.html" class="hover:text-blue-800 transition">Каталог</a>
+        <a href="about.html" class="hover:text-blue-800 transition">О нас</a>
+        <a href="contact.html" class="hover:text-blue-800 transition">Контакты</a>
+        <a href="blog.html" class="text-blue-800 font-semibold transition">Блог</a>
+        <a href="cart.html" class="hover:text-blue-800 transition">Корзина</a>
+        <a href="account.html" class="hover:text-blue-800 transition">Аккаунт</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden focus:outline-none text-gray-700" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden bg-white shadow-md md:hidden">
+      <nav class="flex flex-col py-4 px-6 space-y-2 font-medium text-gray-700">
+        <a href="index.html" class="hover:text-blue-800">Главная</a>
+        <a href="catalog.html" class="hover:text-blue-800">Каталог</a>
+        <a href="about.html" class="hover:text-blue-800">О нас</a>
+        <a href="contact.html" class="hover:text-blue-800">Контакты</a>
+        <a href="blog.html" class="text-blue-800 font-semibold">Блог</a>
+        <a href="cart.html" class="hover:text-blue-800">Корзина</a>
+        <a href="account.html" class="hover:text-blue-800">Аккаунт</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Blog Posts Grid -->
+  <main class="flex-grow max-w-screen-xl mx-auto px-6 py-12 mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Post Card 1: Лето -->
+    <article class="bg-white rounded-2xl shadow hover:shadow-lg transition">
+      <div class="h-32 bg-yellow-50 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 3v2m0 14v2m8.66-10h-2M5.34 12h-2m15.32-6.34l-1.414 1.414M6.343 17.657l-1.414 1.414m15.32 0l-1.414-1.414M6.343 6.343l-1.414-1.414M12 7a5 5 0 000 10a5 5 0 000-10z" />
+        </svg>
+      </div>
+      <div class="p-4">
+        <h2 class="text-lg font-semibold text-gray-800 mb-1">Как выбрать идеальный гардероб на лето?</h2>
+        <p class="text-gray-600 mb-3">Советы стилистов: легкие ткани, натуральные оттенки, универсальные аксессуары и солнцезащитные очки. Узнайте, как создать свежий образ для отпуска и города.</p>
+        <div class="flex items-center justify-between text-sm text-gray-500 mb-2">
+          <span>Анна Иванова</span>
+          <span>21 апр. 2025</span>
+        </div>
+        <a href="404.html" class="text-yellow-600 font-medium hover:underline">Читать далее →</a>
+      </div>
+    </article>
+
+    <!-- Post Card 2: Весна -->
+    <article class="bg-white rounded-2xl shadow hover:shadow-lg transition">
+      <div class="h-32 bg-pink-50 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 8l4 4-4 4m16-8l-4 4 4 4" />
+        </svg>
+      </div>
+      <div class="p-4">
+        <h2 class="text-lg font-semibold text-gray-800 mb-1">Тренды весна-2025: что носить этой весной?</h2>
+        <p class="text-gray-600 mb-3">Пастельные тона, цветочные принты, легкие плащи и кроссовки на платформе. Смотрите самые смелые сочетания сезона.</p>
+        <div class="flex items-center justify-between text-sm text-gray-500 mb-2">
+          <span>Мария Смирнова</span>
+          <span>15 апр. 2025</span>
+        </div>
+        <a href="404.html" class="text-pink-600 font-medium hover:underline">Читать далее →</a>
+      </div>
+    </article>
+
+    <!-- Post Card 3: Цвета -->
+    <article class="bg-white rounded-2xl shadow hover:shadow-lg transition">
+      <div class="h-32 bg-green-50 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 15a4 4 0 004 4h8a4 4 0 004-4V9a4 4 0 00-4-4H8a4 4 0 00-4 4v6z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8h8v8H8V8z" />
+        </svg>
+      </div>
+      <div class="p-4">
+        <h2 class="text-lg font-semibold text-gray-800 mb-1">Как сочетать цвета в одежде?</h2>
+        <p class="text-gray-600 mb-3">Изучите правила цветового круга: комплементарные, аналоговые и триадные сочетания. Создавайте гармоничные образы каждый день.</p>
+        <div class="flex items-center justify-between text-sm text-gray-500 mb-2">
+          <span>Олег Петров</span>
+          <span>10 апр. 2025</span>
+        </div>
+        <a href="404.html" class="text-green-600 font-medium hover:underline">Читать далее →</a>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center text-xs py-2 mt-auto">
+    © 2025 Blessy. Все права защищены.
+  </footer>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

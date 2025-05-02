@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Оформление заказа — Blessy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+</head>
+<body class="bg-gray-50 font-Manrope flex flex-col min-h-screen text-gray-700">
+
+  <!-- Header -->
+  <header class="bg-white/80 backdrop-blur-sm shadow-md fixed inset-x-0 top-0 z-50">
+    <div class="max-w-5xl mx-auto flex items-center justify-between p-4">
+      <a href="index.html" class="text-2xl font-extrabold text-blue-600">Blessy</a>
+      <nav class="hidden md:flex space-x-6 text-gray-600 font-medium">
+        <a href="index.html" class="hover:text-blue-600 transition">Главная</a>
+        <a href="catalog.html" class="hover:text-blue-600 transition">Каталог</a>
+        <a href="about.html" class="hover:text-blue-600 transition">О нас</a>
+        <a href="contact.html" class="hover:text-blue-600 transition">Контакты</a>
+        <a href="blog.html" class="hover:text-blue-600 transition">Блог</a>
+        <a href="cart.html" class="text-blue-600 font-semibold">Корзина</a>
+        <a href="account.html" class="hover:text-blue-600 transition">Аккаунт</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden text-gray-600 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden bg-white shadow-md">
+      <nav class="flex flex-col space-y-2 py-4 px-6 text-gray-700">
+        <a href="index.html" class="hover:text-blue-600 transition">Главная</a>
+        <a href="catalog.html" class="hover:text-blue-600 transition">Каталог</a>
+        <a href="about.html" class="hover:text-blue-600 transition">О нас</a>
+        <a href="contact.html" class="hover:text-blue-600 transition">Контакты</a>
+        <a href="blog.html" class="hover:text-blue-600 transition">Блог</a>
+        <a href="cart.html" class="text-blue-600 font-semibold">Корзина</a>
+        <a href="account.html" class="hover:text-blue-600 transition">Аккаунт</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow pt-24 pb-12">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <!-- Progress Steps -->
+      <div class="flex items-center justify-between mb-12">
+        <div class="relative flex-1">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full h-0.5 bg-gray-200"></div>
+          </div>
+          <div class="relative flex justify-between text-sm">
+            <!-- Корзина -->
+            <div class="flex flex-col items-center">
+              <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.293 2.707a1 1 0 00.894 1.493h10.798a1 1 0 00.894-1.493L17 13M7 13l1.5-4h7l1.5 4" />
+                </svg>
+              </div>
+              <span class="mt-2 font-semibold text-blue-700">Корзина</span>
+            </div>
+
+            <!-- Оплата -->
+            <div class="flex flex-col items-center">
+              <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a4 4 0 10-8 0v2H5a2 2 0 00-2 2v6a2 2 0 002 2h14a2 2 0 002-2v-6a2 2 0 00-2-2h-2z" />
+                </svg>
+              </div>
+              <span class="mt-2 text-gray-500">Оплата</span>
+            </div>
+
+            <!-- Доставка -->
+            <div class="flex flex-col items-center">
+              <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.293 2.707a1 1 0 00.894 1.493h10.798a1 1 0 00.894-1.493L17 13M7 13l1.5-4h7l1.5 4" />
+                </svg>
+              </div>
+              <span class="mt-2 text-gray-500">Доставка</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Section -->
+      <section id="cart-view" class="bg-white rounded-xl shadow divide-y divide-gray-200 mb-8">
+        <h2 class="text-2xl font-semibold p-6 text-gray-800">Ваша корзина</h2>
+        <div id="cart-items" class="p-6 space-y-6"></div>
+        <p id="empty-msg" class="p-6 text-center text-gray-400">Корзина пуста</p>
+        <div id="summary" class="hidden p-6 flex justify-between items-center">
+          <div class="text-lg font-medium text-gray-800">Всего: <span id="total-price">0 ₸</span></div>
+          <button id="checkout-btn" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-500 transition flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a4 4 0 10-8 0v2H5a2 2 0 00-2 2v6a2 2 0 002 2h14a2 2 0 002-2v-6a2 2 0 00-2-2h-2z" />
+            </svg>
+            Перейти к оплате
+          </button>
+        </div>
+      </section>
+
+      <!-- Payment Section -->
+      <section id="payment-form" class="hidden bg-white rounded-xl shadow divide-y divide-gray-200 p-6 mb-8">
+        <h2 class="text-2xl font-semibold pb-4 text-gray-800">Оплата картой</h2>
+        <form id="pay-form" class="space-y-4 pt-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label for="card-number" class="block text-sm font-medium text-gray-700">Номер карты</label>
+              <input id="card-number" type="text" maxlength="19" placeholder="1234 5678 9012 3456" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 transition" required />
+            </div>
+            <div>
+              <label for="card-expiry" class="block text-sm font-medium text-gray-700">Срок (MM/YY)</label>
+              <input id="card-expiry" type="text" maxlength="5" placeholder="08/27" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 transition" required />
+            </div>
+            <div>
+              <label for="card-cvc" class="block text-sm font-medium text-gray-700">CVC</label>
+              <input id="card-cvc" type="text" maxlength="3" placeholder="123" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 transition" required />
+            </div>
+            <div>
+              <label for="card-name" class="block text-sm font-medium text-gray-700">Имя на карте</label>
+              <input id="card-name" type="text" placeholder="Иван Иванов" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 transition" required />
+            </div>
+          </div>
+          <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-500 transition flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" />
+            </svg>
+            Оплатить
+          </button>
+        </form>
+      </section>
+
+      <!-- Address Section -->
+      <section id="address-form" class="hidden bg-white rounded-xl shadow divide-y divide-gray-200 p-6 mb-8">
+        <h2 class="text-2xl font-semibold pb-4 text-gray-800">Адрес доставки</h2>
+        <form id="addr-form" class="space-y-4 pt-4">
+          <div>
+            <label for="addr-line" class="block text-sm font-medium text-gray-700">Улица и дом</label>
+            <input id="addr-line" type="text" placeholder="ул. Пушкина, 10" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 transition" required />
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label for="addr-city" class="block text-sm font-medium text-gray-700">Город</label>
+              <input id="addr-city" type="text" placeholder="Алматы" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 transition" required />
+            </div>
+            <div>
+              <label for="addr-zip" class="block text-sm font-medium text-gray-700">Индекс</label>
+              <input id="addr-zip" type="text" placeholder="050000" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 transition" required />
+            </div>
+          </div>
+          <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-500 transition flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h1l2 7h13l3-8H6" />
+            </svg>
+            Завершить заказ
+          </button>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center text-sm py-5 mt-auto">
+    <div class="max-w-5xl mx-auto">© 2025 Blessy. Все права защищены.</div>
+  </footer>
+
+  <script>
+    const notyf = new Notyf();
+    document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.map(i => ({ ...i, qty: Number(i.qty) || 1, price: Number(i.price) || 0 }));
+    const fmt = n => n.toLocaleString('ru-RU') + ' ₸';
+    const el = id => document.getElementById(id);
+    const container = el('cart-items');
+    const emptyMsg = el('empty-msg');
+    const summary = el('summary');
+    const totalEl = el('total-price');
+
+    function renderCart() {
+      container.innerHTML = '';
+      if (!cart.length) {
+        emptyMsg.classList.remove('hidden'); summary.classList.add('hidden'); return;
+      }
+      emptyMsg.classList.add('hidden'); summary.classList.remove('hidden');
+      let total = 0;
+      cart.forEach(item => {
+        const line = item.price * item.qty;
+        total += line;
+        const row = document.createElement('div'); row.className = 'flex justify-between items-center';
+        row.innerHTML = `
+          <div class="flex items-center space-x-4 w-2/3">
+            <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-contain rounded-lg" />
+            <div class="flex-1">
+              <p class="font-medium text-gray-800">${item.name}</p>
+              <p class="text-sm text-gray-600">${fmt(item.price)} × ${item.qty}</p>
+            </div>
+          </div>
+          <p class="font-semibold text-gray-800">${fmt(line)}</p>`;
+        container.appendChild(row);
+      });
+      totalEl.textContent = fmt(total);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    renderCart();
+
+    el('checkout-btn').addEventListener('click', () => {
+      el('cart-view').classList.add('hidden');
+      el('payment-form').classList.remove('hidden');
+    });
+    el('pay-form').addEventListener('submit', e => {
+      e.preventDefault(); notyf.success('Оплата проведена!'); renderOrder(); el('payment-form').classList.add('hidden'); el('address-form').classList.remove('hidden');
+    });
+    function renderOrder() {
+      const orders = JSON.parse(localStorage.getItem('orders')||'[]');
+      orders.push({ id: Date.now(), date: new Date().toLocaleDateString(), total: el('total-price').textContent, status:'Оплачен'});
+      localStorage.setItem('orders', JSON.stringify(orders)); cart=[]; localStorage.removeItem('cart');
+    }
+    el('addr-form').addEventListener('submit', e => {
+      e.preventDefault(); notyf.success('Заказ завершён!'); setTimeout(()=>location.href='account.html',500);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blessy — О нас</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md fixed w-full z-50">
+    <div class="max-w-screen-xl mx-auto flex items-center justify-between py-4 px-6">
+      <div class="text-2xl font-extrabold text-blue-800">Blessy</div>
+      <nav class="hidden md:flex space-x-6 font-semibold text-gray-700">
+        <a href="index.html" class="hover:text-blue-800">Главная</a>
+        <a href="catalog.html" class="hover:text-blue-800">Каталог</a>
+        <a href="about.html" class="text-blue-800 font-extrabold">О нас</a>
+        <a href="contact.html" class="hover:text-blue-800">Контакты</a>
+        <a href="blog.html" class="hover:text-blue-800">Блог</a>
+        <a href="cart.html" class="hover:text-blue-800">Корзина</a>
+        <a href="account.html" class="hover:text-blue-800">Аккаунт</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="Toggle menu">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+      <nav class="flex flex-col space-y-2 py-4 px-6 font-semibold text-gray-700">
+        <a href="index.html" class="hover:text-blue-800">Главная</a>
+        <a href="catalog.html" class="hover:text-blue-800">Каталог</a>
+        <a href="about.html" class="text-blue-800 font-extrabold">О нас</a>
+        <a href="contact.html" class="hover:text-blue-800">Контакты</a>
+        <a href="blog.html" class="hover:text-blue-800">Блог</a>
+        <a href="cart.html" class="hover:text-blue-800">Корзина</a>
+        <a href="account.html" class="hover:text-blue-800">Аккаунт</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow max-w-screen-lg mx-auto pt-28 px-4 sm:px-6 lg:px-8">
+    <section class="text-center mb-12">
+      <h2 class="text-4xl font-extrabold text-blue-800 mb-4">О нас</h2>
+      <p class="text-lg text-gray-600">Blessy — стиль и качество.</p>
+      <p class="mt-4 text-gray-700 max-w-2xl mx-auto">Все началось с мечты. Мечты о том, чтобы создать место, где каждый мог бы найти не просто одежду, а частичку себя...</p>
+    </section>
+
+    <!-- Рост бренда -->
+    <section class="mb-12">
+      <h3 class="text-2xl font-semibold text-blue-700 text-center mb-4">Рост нашего бренда</h3>
+      <div class="relative chart-container h-80">
+        <canvas id="growthChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Принципы бренда -->
+    <section class="mb-16">
+      <h3 class="text-2xl font-semibold text-blue-700 text-center mb-4">Принципы нашего бренда</h3>
+      <div class="relative chart-container h-80">
+        <canvas id="principlesChart"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center text-sm py-4">
+    © 2025 Blessy. Все права защищены.
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+    // Рост бренда
+    new Chart(document.getElementById('growthChart'), {
+      type: 'line',
+      data: {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+        datasets: [{
+          label: 'Рост бренда',
+          data: [0, 50, 150, 300, 500, 750, 1000, 1250],
+          borderColor: 'rgba(59, 130, 246, 1)',
+          backgroundColor: 'rgba(59, 130, 246, 0.2)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          tooltip: { backgroundColor: 'rgba(0,0,0,0.7)', titleColor: '#fff', bodyColor: '#fff' }
+        },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+
+    // Принципы бренда
+    new Chart(document.getElementById('principlesChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Качество', 'Доступность', 'Стиль', 'Удобство'],
+        datasets: [{ data: [30, 20, 25, 25], backgroundColor: ['#3B82F6', '#34D399', '#FBBF24', '#F87171'] }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { position: 'top', labels: { color: '#374151' } }, tooltip: { backgroundColor: 'rgba(0,0,0,0.7)', titleColor: '#fff', bodyColor: '#fff' } }
+      }
+    });
+  </script>
+</body>
+</html>
